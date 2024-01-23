@@ -1,9 +1,4 @@
-let searchBox = document.getElementById("searchbox");
 let btn = document.getElementById('generate_text');
-let resultBox = document.getElementById('resultBox');
-let loader = document.getElementById("loader");
-
-
 let getPokeData = () => {
     let id = Math.floor(Math.random() * 150) + 1;
     let url = "https://pokeapi.co/api/v2/pokemon/" + id + "";
