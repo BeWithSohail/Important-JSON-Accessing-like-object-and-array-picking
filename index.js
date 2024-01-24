@@ -1,13 +1,18 @@
+let searchBox = document.getElementById("searchbox");
 let btn = document.getElementById('generate_text');
+let resultBox = document.getElementById('resultBox');
+let loader = document.getElementById("loader");
+
+
 let getPokeData = () => {
     let id = Math.floor(Math.random() * 150) + 1;
+    console.log("Number1 ", data); // 1
     let url = "https://pokeapi.co/api/v2/pokemon/" + id + "";
     // console.log(url);
     fetch(url).then((response) => {
         return response.json();
     }).then((data) => {
         //all data value shows here
-        console.log("Number1 ", data); // 1
         console.log("-------------------EXAMPLE OF ABILITIES------------------------")
         console.log("Number2 ", data.abilities); //2
         console.log("Number3 ", data.abilities[0].ability); //3
@@ -25,8 +30,6 @@ let getPokeData = () => {
         console.log("-------------------END EXAMPLE OF ABILITIES------------------------")
         console.log("-------------------ENDS------------------------")
 
-
-
         console.log("-------------------EXAMPLE OF FORMS------------------------")
         console.log("Number1", data.forms);
         console.log("Number2", data.forms[0]);
@@ -39,7 +42,23 @@ let getPokeData = () => {
         console.log("-------------------END EXAMPLE OF FORMS------------------------")
         console.log("-------------------ENDS------------------------")
 
-
+        console.log("-------------------EXAMPLE OF GAME INDICES------------------------")
+        console.log("Number1", data.game_indices);
+        let game_indicesArray = data.game_indices;
+        // for (let i = 0; i < game_indicesArray.length; i++) {
+        //     console.log("number2", game_indicesArray[i]);
+        // };
+        let game_indicesArray2 = data.game_indices;
+        game_indicesArray2.forEach((item, index) => {
+            // Check if the 'version' property exists in the object
+              item.hasOwnProperty('version');
+              // Access the 'name' property of the 'version' object
+              const versionName = item.version.name;
+              console.log(` Version Name: ${versionName}`);
+          });
+        
+        console.log("-------------------END EXAMPLE OF GAME INDICES ------------------------")
+        console.log("-------------------ENDS------------------------")
 
 
 
